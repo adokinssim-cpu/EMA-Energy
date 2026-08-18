@@ -16,13 +16,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return HomeScreen();
+        return const HomeScreen();
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'list',
           builder: (BuildContext context, GoRouterState state) {
-            return ListScreen();
+            return const ListScreen();
           },
         ),
         GoRoute(
@@ -44,7 +44,6 @@ final GoRouter _router = GoRouter(
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -53,6 +52,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         brightness: Brightness.light,
       ),
+
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: ThemeMode.system,
       routerConfig: _router,
