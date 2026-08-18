@@ -4,14 +4,16 @@ import '../models/installation.mod.dart';
 import '../widgets/custom_button.dart';
 
 class DetailScreen extends StatelessWidget {
-  final Installation installation;
+  final Installation? installation;
 
-  const DetailScreen({super.key, required this.installation});
+  const DetailScreen({super.key, this.installation});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(installation.name)),
+      appBar: AppBar(
+        title: Text(installation?.name ?? 'Détails de l\'installation'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -22,17 +24,20 @@ class DetailScreen extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            Text('ID : ${installation.id}', style: TextStyle(fontSize: 16)),
-            const SizedBox(height: 8),
-            Text('Type : ${installation.type}', style: TextStyle(fontSize: 16)),
+            Text('ID : ${installation?.id}', style: TextStyle(fontSize: 16)),
             const SizedBox(height: 8),
             Text(
-              'Puissance : ${installation.powerKW} kW',
+              'Type : ${installation?.type}',
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 8),
             Text(
-              'Localisation : ${installation.location}',
+              'Puissance : ${installation?.powerKW} kW',
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Localisation : ${installation?.location}',
               style: TextStyle(fontSize: 16),
             ),
             const Spacer(),

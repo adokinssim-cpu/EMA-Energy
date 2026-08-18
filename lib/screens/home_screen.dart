@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../widgets/custom_card.dart';
-import '../widgets/custom_button.dart';
-import '../main.dart';
+import '../widgets/custom_button.dart' show CustomButton;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,15 +14,11 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(
-              themeNotifier.value == ThemeMode.dark
+              Theme.of(context).brightness == Brightness.dark
                   ? Icons.light_mode
                   : Icons.dark_mode,
             ),
-            onPressed: () {
-              themeNotifier.value = themeNotifier.value == ThemeMode.dark
-                  ? ThemeMode.light
-                  : ThemeMode.dark;
-            },
+            onPressed: () {},
           ),
         ],
       ),
